@@ -8,8 +8,6 @@ class AuthView extends Component {
     constructor() {
         super();
 
-        this.changeView = this.changeView.bind(this);
-
         // 1: Giriş Ekranı
         // 2. Kayıt Ekranı
         // 3. Şifre reset ekranı
@@ -30,10 +28,10 @@ class AuthView extends Component {
     render() {
 
         return this.state.currentView  === 1
-                        ? <LoginView onViewChange={this.changeView} />
+                        ? <LoginView onViewChange={this.changeView.bind(this)} />
                         : this.state.currentView === 2 
-                        ? <SignUpView onViewChange={this.changeView} />
-                        : <PasswordReset onViewChange={this.changeView} />
+                        ? <SignUpView onViewChange={this.changeView.bind(this)} />
+                        : <PasswordReset onViewChange={this.changeView.bind(this)} />
 
     }
 }
