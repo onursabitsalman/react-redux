@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+
 class Header extends React.Component {
+
     constructor(){
         super();
-        
-        this.buttonClicked = this.buttonClicked.bind(this);
 
         this.state = {
             isNavOpen : false
@@ -13,19 +13,18 @@ class Header extends React.Component {
     }
 
     buttonClicked(){
-
-
         this.setState({
             isNavOpen : !this.state.isNavOpen
         })
     }
 
-    render(){
+
+    render() {
         return (
-            <div className="header">
-                <nav className="container navbar navbar-expand-lg navbar-light justify-content-between">
-                    <a className="navbar-brand" href="#">Egitimbudur</a>
-                    <button className="navbar-toggler" type="button" onClick={this.buttonClicked}>
+            <header>
+                <nav className="container navbar navbar-expand-lg justify-content-between">
+                    <a className="navbar-brand" href="#">EĞİTİMBUDUR</a>
+                    <button className="navbar-toggler" type="button" onClick={this.buttonClicked.bind(this)}>
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="navbar-collapse" style={{ display: this.state.isNavOpen ? "block" : "none" }}>
@@ -40,9 +39,9 @@ class Header extends React.Component {
                                 <Link to="/iletisim" activeClassName="active" className="nav-link">İletişim</Link>
                             </li>
                         </ul>
-                    </div>               
+                    </div>
                 </nav>
-            </div>
+            </header>
         )
     }
 }
